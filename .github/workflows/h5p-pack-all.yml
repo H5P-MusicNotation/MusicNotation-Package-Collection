@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install TypeScript
-      run: npm install -g typescript@4.8.x
+      run: npm install -g typescript@4.6.3
     - name: Clone and install Music Notation Widget
       run: |
         git clone https://github.com/H5P-MusicNotation/h5p-notation-widget.git
         cd h5p-notation-widget
         npm install
-        tsc
+        tsc --skipLibCheck
         npm run build
         echo "Folder Contents after installation"
         ls
@@ -25,7 +25,7 @@ jobs:
         git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-Controller.git
         cd H5P-MusicNotation-Controller
         npm install
-        tsc
+        tsc --skipLibCheck
         npm run build
         echo "Folder Contents after installation"
         ls
