@@ -61,7 +61,7 @@ jobs:
       run: |
         npm install -g h5p
         cd ..
-        h5p pack H5P-MusicNotation H5P-MusicNotation-MultipleChoice h5p-notation-widget H5P-MusicNotation-Controller H5P-MusicNotation-QuestionSet H5P-Package-Collection.h5p
+        h5p pack H5P-MusicNotation H5P-MusicNotation-MultipleChoice h5p-notation-widget H5P-MusicNotation-Controller H5P-MusicNotation-QuestionSet H5P-Package-Collection/h5p-package/H5P-Package-Collection.h5p
     - name: Save changes to repo
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
