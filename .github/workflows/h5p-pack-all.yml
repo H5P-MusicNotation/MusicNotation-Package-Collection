@@ -51,8 +51,8 @@ jobs:
       run: |
         git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-QuestionSet.git
         cd H5P-MusicNotation-QuestionSet
-        npm install
-        npm run build
+        #npm install
+        #npm run build
         echo "Folder Contents after installation"
         ls
     - name: Make dir for h5p package if not existent
