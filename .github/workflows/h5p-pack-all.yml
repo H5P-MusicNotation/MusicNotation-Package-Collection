@@ -1,0 +1,72 @@
+name: "Checkout and pack all Packages from the MusicNotation Ecosystem"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  checkout-packages:
+    name: Clone all Packages and install
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install TypeScript
+      run: npm install -g typescript@4.6.3
+    - name: Clone and install MusicNotation
+      run: |
+        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation.git
+        cd H5P-MusicNotation
+        npm install
+        #npm install vibe-editor
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Clone and install Music Notation MultipleChoice
+      run: |
+        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-MultipleChoice.git
+        cd H5P-MusicNotation-MultipleChoice
+        npm install
+        #npm install vibe-editor
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Clone and install Music Notation Widget
+      run: |
+        git clone https://github.com/mnowakow/h5p-notation-widget.git
+        cd h5p-notation-widget
+        npm install
+        tsc
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Clone and install Music Notation Controller
+      run: |
+        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-Controller.git
+        cd H5P-MusicNotation-Controller
+        npm install
+        tsc
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Clone and install MusicNotation QuestionSet
+      run: |
+        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-QuestionSet.git
+        cd H5P-MusicNotation-QuestionSet
+        npm install
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Make dir for h5p package if not existent
+      run: mkdir -p h5p-package
+    - name: Pack all Repositories 
+      run: |
+        npm install -g h5p
+        cd ..
+        h5p pack H5P-MusicNotation H5P-MusicNotation-MultipleChoice h5p-notation-widget H5P-MusicNotation-Controller H5P-MusicNotation-QuestionSet H5P-Package-Collection.h5p
+    - name: Save changes to repo
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit-message: update h5p package by workflow
+        branch: main
+        file_patters: h5p-package/*.h5p
+
+        
