@@ -1,4 +1,4 @@
-name: "Checkout and pack all Packages from the MusicNotation Ecosystem"
+name: "Clone and pack all Packages from the MusicNotation Ecosystem"
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   checkout-packages:
-    name: Clone all Packages and install
+    name: "Clone and pack all Packages from the MusicNotation Ecosystem"
     runs-on: ubuntu-latest
     steps:
     - name: Install TypeScript
@@ -31,7 +31,7 @@ jobs:
         ls
     - name: Clone and install Music Notation Widget
       run: |
-        git clone https://github.com/mnowakow/h5p-notation-widget.git
+        git clone https://github.com/H5P-MusicNotation/h5p-notation-widget.git
         cd h5p-notation-widget
         npm install
         tsc
