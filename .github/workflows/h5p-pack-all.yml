@@ -9,26 +9,13 @@ jobs:
     name: "Clone and pack all Packages from the MusicNotation Ecosystem"
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14.17.0'
     - name: Install TypeScript
       run: npm install -g typescript@4.6.3
-    - name: Clone and install MusicNotation
-      run: |
-        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation.git
-        cd H5P-MusicNotation
-        npm install
-        #npm install vibe-editor
-        npm run build
-        echo "Folder Contents after installation"
-        ls
-    - name: Clone and install Music Notation MultipleChoice
-      run: |
-        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-MultipleChoice.git
-        cd H5P-MusicNotation-MultipleChoice
-        npm install
-        #npm install vibe-editor
-        npm run build
-        echo "Folder Contents after installation"
-        ls
     - name: Clone and install Music Notation Widget
       run: |
         git clone https://github.com/H5P-MusicNotation/h5p-notation-widget.git
@@ -44,6 +31,24 @@ jobs:
         cd H5P-MusicNotation-Controller
         npm install
         tsc
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Clone and install MusicNotation
+      run: |
+        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation.git
+        cd H5P-MusicNotation
+        npm install
+        #npm install vibe-editor
+        npm run build
+        echo "Folder Contents after installation"
+        ls
+    - name: Clone and install Music Notation MultipleChoice
+      run: |
+        git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-MultipleChoice.git
+        cd H5P-MusicNotation-MultipleChoice
+        npm install
+        #npm install vibe-editor
         npm run build
         echo "Folder Contents after installation"
         ls
