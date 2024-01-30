@@ -1,7 +1,7 @@
 name: "Clone and pack all Packages from the MusicNotation Ecosystem"
 
 on:
-  push:
+  release:
     branches: [main]
 
 jobs:
