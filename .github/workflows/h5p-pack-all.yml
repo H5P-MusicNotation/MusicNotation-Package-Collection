@@ -9,6 +9,8 @@ jobs:
     name: "Clone and pack all Packages from the MusicNotation Ecosystem"
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
     - name: Install TypeScript
       run: npm install -g typescript@latest
     - name: Clone and install Music Notation Widget
