@@ -14,6 +14,9 @@ jobs:
     - name: Clone and install Music Notation Widget
       run: |
         git clone https://github.com/H5P-MusicNotation/h5p-notation-widget.git
+        echo "Top level view"
+        pwd
+        ls
         cd h5p-notation-widget
         npm install
         tsc
@@ -23,6 +26,9 @@ jobs:
     - name: Clone and install Music Notation Controller
       run: |
         git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-Controller.git
+        echo "Top level view"
+        pwd
+        ls
         cd H5P-MusicNotation-Controller
         npm install
         tsc
@@ -32,6 +38,9 @@ jobs:
     - name: Clone and install MusicNotation
       run: |
         git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation.git
+        echo "Top level view"
+        pwd
+        ls
         cd H5P-MusicNotation
         npm install
         #npm install vibe-editor
@@ -41,6 +50,9 @@ jobs:
     - name: Clone and install Music Notation MultipleChoice
       run: |
         git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-MultipleChoice.git
+        echo "Top level view"
+        pwd
+        ls
         cd H5P-MusicNotation-MultipleChoice
         npm install
         #npm install vibe-editor
@@ -50,6 +62,9 @@ jobs:
     - name: Clone and install MusicNotation QuestionSet
       run: |
         git clone https://github.com/H5P-MusicNotation/H5P-MusicNotation-QuestionSet.git
+        echo "Top level view"
+        pwd
+        ls
         cd H5P-MusicNotation-QuestionSet
         #npm install
         #npm run build
@@ -59,11 +74,16 @@ jobs:
       run: |
         mkdir -p h5p-package
         echo "Folder 'h5p-package' created"
+        pwd
+        ls
+        cd ..
+        echo "Folder above"
+        pwd
         ls
     - name: Pack all Repositories 
       run: |
         npm install -g h5p
-        cd ..
+        #cd ..
         echo "Contents before pack"
         ls
         h5p pack H5P-MusicNotation H5P-MusicNotation-MultipleChoice h5p-notation-widget H5P-MusicNotation-Controller H5P-MusicNotation-QuestionSet H5P-Package-Collection/h5p-package/H5P-Package-Collection.h5p
