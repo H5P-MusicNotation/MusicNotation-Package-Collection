@@ -89,6 +89,11 @@ jobs:
         echo "Contents before pack"
         ls
         h5p pack H5P-MusicNotation H5P-MusicNotation-MultipleChoice h5p-notation-widget H5P-MusicNotation-Controller H5P-MusicNotation-QuestionSet h5p-package/H5P-Package-Collection.h5p
+        rm -r H5P-MusicNotation
+        rm -r H5P-MusicNotation-MultipleChoice
+        rm -r h5p-notation-widget
+        rm -r H5P-MusicNotation-Controller
+        rm -r H5P-MusicNotation-QuestionSet
         cd h5p-package
         echo "Content of H5P-Package-Collection/h5p-package"
         ls
