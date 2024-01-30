@@ -56,12 +56,20 @@ jobs:
         echo "Folder Contents after installation"
         ls
     - name: Make dir for h5p package if not existent
-      run: mkdir -p h5p-package
+      run: |
+        mkdir -p h5p-package
+        echo "Folder 'h5p-package' created"
+        ls
     - name: Pack all Repositories 
       run: |
         npm install -g h5p
         cd ..
+        echo "cd .. pack"
+        ls
         h5p pack H5P-MusicNotation H5P-MusicNotation-MultipleChoice h5p-notation-widget H5P-MusicNotation-Controller H5P-MusicNotation-QuestionSet H5P-Package-Collection/h5p-package/H5P-Package-Collection.h5p
+        cd H5P-Package-Collection/h5p-package
+        echo "Content of H5P-Package-Collection/h5p-package"
+        ls
     - name: Save changes to repo
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
