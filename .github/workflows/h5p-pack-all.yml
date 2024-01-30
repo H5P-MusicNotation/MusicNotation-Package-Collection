@@ -75,6 +75,6 @@ jobs:
       with:
         commit-message: update h5p package by workflow
         branch: main
-        file_patters: h5p-package/*.h5p
+        file_patters: H5P-Package-Collection/h5p-package/*.h5p
 
         
